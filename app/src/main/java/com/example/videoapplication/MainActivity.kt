@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,17 +20,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val button = findViewById<Button>(R.id.favorite_screen_button)
-            button.setOnClickListener {
-                val intent = Intent(this, FavoritesScreen::class.java)
-                startActivity(intent)
-            }
+
 
         val recyclerList = generateDummyList(500)
 
         recycler_view.adapter = RecyclerAdapter(recyclerList)
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.setHasFixedSize(true)
+    }
+
+    fun goToFavoriteScreen(view: View) {
+        val button = findViewById<Button>(R.id.favorite_screen_button)
+        button.setOnClickListener {
+            val intent = Intent(this, FavoritesScreen::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun generateDummyList(size: Int) : List<RecyclerItem> {
