@@ -9,12 +9,12 @@
         android:layout_height="match_parent"
         android:padding="8dp">
 
-    <ImageView
-        android:id="@+id/image_view"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/ic_android" ></ImageView>
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_android" />
 
     <TextView
         android:id="@+id/text_view_1"

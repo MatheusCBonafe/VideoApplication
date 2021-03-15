@@ -1,14 +1,20 @@
 package com.example.videoapplication
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.recycler_view_item.*
 
 class MainActivity : AppCompatActivity() {
+
+    private val playbackPosition = 0
+    private val rtspUrl = "rstp://184.72.239.149/vod/mp4:BigBuckBunny_175k.mov"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
