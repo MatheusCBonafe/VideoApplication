@@ -6,4 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".FavoritesScreen">
 
+    <LinearLayout
+        android:id="@+id/buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:clipToPadding="true"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/favorite_screen_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="The right button only tells truths" />
+
+        <Button
+            android:id="@+id/recycler_list_screen_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="The left button only tells lies" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
