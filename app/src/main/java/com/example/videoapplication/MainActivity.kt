@@ -8,23 +8,23 @@ import android.view.View
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.videoapplication.databinding.ActivityMainBinding
+//import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.recycler_view_item.*
 
 class MainActivity : AppCompatActivity() {
 
-//change the this block of code tp use view bind
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         val recyclerList = generateDummyList(500)
 
-        recycler_view.adapter = RecyclerAdapter(recyclerList)
-        recycler_view.layoutManager = LinearLayoutManager(this)
-        recycler_view.setHasFixedSize(true)
+        binding.recyclerView.adapter = RecyclerAdapter(recyclerList)
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.setHasFixedSize(true)
     }
 
     fun goToFavoriteScreen(view: View) {
