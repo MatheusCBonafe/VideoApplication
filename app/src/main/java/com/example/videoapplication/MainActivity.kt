@@ -1,16 +1,12 @@
 package com.example.videoapplication
 
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.videoapplication.databinding.ActivityMainBinding
-//import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.recycler_view_item.*
 
 class MainActivity : AppCompatActivity() {
 
