@@ -13,9 +13,7 @@ import kotlinx.android.synthetic.main.recycler_view_item.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val playbackPosition = 0
-    private val rtspUrl = "rstp://184.72.239.149/vod/mp4:BigBuckBunny_175k.mov"
-
+//change the this block of code tp use view bind
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
