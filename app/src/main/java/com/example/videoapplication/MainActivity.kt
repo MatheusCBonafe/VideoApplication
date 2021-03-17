@@ -1,35 +1,34 @@
 package com.example.videoapplication
 
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.recycler_view_item.*
+import com.example.videoapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-//change the this block of code tp use view bind
     override fun onCreate(savedInstanceState: Bundle?) {
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-
-
         val recyclerList = generateDummyList(500)
 
-        recycler_view.adapter = RecyclerAdapter(recyclerList)
-        recycler_view.layoutManager = LinearLayoutManager(this)
-        recycler_view.setHasFixedSize(true)
+        binding.apply {
+            setContentView(root)
+
+            recyclerView.apply {
+                adapter = RecyclerAdapter(recyclerList)
+                layoutManager = LinearLayoutManager(this@MainActivity)
+                setHasFixedSize(true)
+            }
+        }
     }
 
     fun goToFavoriteScreen(view: View) {
-        val button = findViewById<Button>(R.id.favorite_screen_button)
-        button.setOnClickListener {
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        binding.favoriteScreenButton.setOnClickListener {
             val intent = Intent(this, FavoritesScreen::class.java)
             startActivity(intent)
         }
