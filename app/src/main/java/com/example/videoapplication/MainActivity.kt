@@ -4,28 +4,31 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.videoapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
 
+        super.onCreate(savedInstanceState)
         val recyclerList = generateDummyList(500)
 
-        binding.recyclerView.adapter = RecyclerAdapter(recyclerList)
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        binding.recyclerView.setHasFixedSize(true)
+        binding.apply {
+            setContentView(root)
+
+            recyclerView.apply {
+                adapter = RecyclerAdapter(recyclerList)
+                layoutManager = LinearLayoutManager(this@MainActivity)
+                setHasFixedSize(true)
+            }
+        }
     }
 
     fun goToFavoriteScreen(view: View) {
-        val button = findViewById<Button>(R.id.favorite_screen_button)
-        button.setOnClickListener {
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        binding.favoriteScreenButton.setOnClickListener {
             val intent = Intent(this, FavoritesScreen::class.java)
             startActivity(intent)
         }

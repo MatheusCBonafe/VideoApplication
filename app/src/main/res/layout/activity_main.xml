@@ -27,7 +27,7 @@
             android:id="@+id/favorite_screen_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="The right button only tells truths"
+            android:text="Favorites"
             android:onClick="goToFavoriteScreen"
             android:layout_weight="1"/>
 
@@ -35,7 +35,7 @@
             android:id="@+id/recycler_list_screen_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="The left button only tells lies"
+            android:text="Videos"
             android:layout_weight="1"/>
     </LinearLayout>
 
