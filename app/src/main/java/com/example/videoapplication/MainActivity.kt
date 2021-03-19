@@ -4,8 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.videoapplication.databinding.ActivityMainBinding
+import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,16 +25,29 @@ class MainActivity : AppCompatActivity() {
                 layoutManager = LinearLayoutManager(this@MainActivity)
                 setHasFixedSize(true)
             }
+
+            tabLayout.apply {
+                addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+
+                    override fun onTabSelected(tab: TabLayout.Tab?) {
+                        if (getSelectedTabPosition() == 0) {
+                            Toast.makeText(this@MainActivity, "Tab " + getSelectedTabPosition(), Toast.LENGTH_LONG).show();
+                        } else if (getSelectedTabPosition() == 1) {
+                            Toast.makeText(this@MainActivity, "Tab " + getSelectedTabPosition(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    override fun onTabReselected(tab: TabLayout.Tab?) {
+                        // Handle tab reselect
+                    }
+
+                    override fun onTabUnselected(tab: TabLayout.Tab?) {
+                        // Handle tab unselect
+                    }
+                })
+            }
         }
     }
 
-    fun goToFavoriteScreen(view: View) {
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-        binding.favoriteScreenButton.setOnClickListener {
-            val intent = Intent(this, FavoritesScreen::class.java)
-            startActivity(intent)
-        }
-    }
 
     private fun generateDummyList(size: Int) : List<RecyclerItem> {
         val list = ArrayList<RecyclerItem>()
@@ -46,7 +61,6 @@ class MainActivity : AppCompatActivity() {
             val item = RecyclerItem(drawable, "Item $i", "Line 2")
             list += item
         }
-
         return list
     }
 }

@@ -8,36 +8,39 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:padding="4dp"
-        android:clipToPadding="false"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/buttons_layout"
-        tools:listitem="@layout/recycler_view_item"
-        ></androidx.recyclerview.widget.RecyclerView>
-
-    <LinearLayout
-        android:id="@+id/buttons_layout"
+        android:clipToPadding="false"
         android:padding="4dp"
-        android:clipToPadding="true"
+        tools:listitem="@layout/recycler_view_item"></androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/tabAppBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
-        <Button
-            android:id="@+id/favorite_screen_button"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Favorites"
-            android:onClick="goToFavoriteScreen"
-            android:layout_weight="1"/>
+            app:tabGravity="fill"
+            app:tabInlineLabel="true"
+            app:tabMode="fixed"
+            app:tabTextAppearance="@style/CustomTabStyle"
+            >
 
-        <Button
-            android:id="@+id/recycler_list_screen_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Videos"
-            android:layout_weight="1"/>
-    </LinearLayout>
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Movies" />
 
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Favorites" />
+        </com.google.android.material.tabs.TabLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
 </RelativeLayout>
