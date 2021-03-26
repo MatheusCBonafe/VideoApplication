@@ -1,66 +1,33 @@
 package com.example.videoapplication
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.videoapplication.databinding.ActivityMainBinding
-import com.google.android.material.tabs.TabLayout
+import com.example.videoapplication.fragments.FavoritesFragment
 
 class MainActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-
-        super.onCreate(savedInstanceState)
-        val recyclerList = generateDummyList(500)
-
-        binding.apply {
-            setContentView(root)
-
-            recyclerView.apply {
-                adapter = RecyclerAdapter(recyclerList)
-                layoutManager = LinearLayoutManager(this@MainActivity)
-                setHasFixedSize(true)
-            }
-
-            tabLayout.apply {
-                addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-
-                    override fun onTabSelected(tab: TabLayout.Tab?) {
-                        if (getSelectedTabPosition() == 0) {
-                            Toast.makeText(this@MainActivity, "Tab " + getSelectedTabPosition(), Toast.LENGTH_LONG).show();
-                        } else if (getSelectedTabPosition() == 1) {
-                            Toast.makeText(this@MainActivity, "Tab " + getSelectedTabPosition(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-                    override fun onTabReselected(tab: TabLayout.Tab?) {
-                        // Handle tab reselect
-                    }
-
-                    override fun onTabUnselected(tab: TabLayout.Tab?) {
-                        // Handle tab unselect
-                    }
-                })
-            }
-        }
+    val binding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+        setUpTabs()
+    }
 
-    private fun generateDummyList(size: Int) : List<RecyclerItem> {
-        val list = ArrayList<RecyclerItem>()
+    private fun setUpTabs() {
+        with(binding) {
+            val adapter = ViewPagerAdapter(supportFragmentManager)
 
-        for (i in 0 until size) {
-            val drawable = when (i % 3) {
-                0 -> R.drawable.ic_android
-                1 -> R.drawable.ic_anchor
-                else -> R.drawable.ic_architecture
-            }
-            val item = RecyclerItem(drawable, "Item $i", "Line 2")
-            list += item
+            adapter.addFragment(ListFragment(), "List")
+            adapter.addFragment(FavoritesFragment(), "Favorites")
+            viewPager.adapter = adapter
+            tabLayout.setupWithViewPager(viewPager)
+            tabLayout.getTabAt(0)!!.setIcon(R.drawable.ic_architecture)
+            tabLayout.getTabAt(1)!!.setIcon(R.drawable.ic_android)
         }
-        return list
+
     }
 }
