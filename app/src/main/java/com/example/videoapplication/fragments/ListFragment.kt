@@ -16,7 +16,7 @@ class ListFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val recyclerList = generateDummyList(500)
+        val recyclerList = generateDummyList(10)
         setUpAdapter(recyclerList)
 
         return binding.root
