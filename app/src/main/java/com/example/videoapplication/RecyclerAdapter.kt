@@ -7,7 +7,7 @@ import com.example.videoapplication.databinding.ItemRecyclerViewBinding
 
 class RecyclerAdapter(private val itemList: List<RecyclerItem>) : RecyclerView.Adapter<RecyclerViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
-        val itemView = ItemRecyclerViewBinding.inflate(LayoutInflater.from(parent.context))
+        val itemView = ItemRecyclerViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return RecyclerViewHolder(itemView)
     }
 
