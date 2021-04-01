@@ -23,7 +23,6 @@ class RecyclerViewHolder(private val item: ItemRecyclerViewBinding) : RecyclerVi
 
     fun bind(recyclerItem: RecyclerItem) {
         with(item) {
-            //root.layoutParams = parent.width
             ItemRecyclerViewImageView.setImageResource(recyclerItem.imageResource)
             ItemRecyclerViewTextView1.text = recyclerItem.text1
             ItemRecyclerViewTextView2.text = recyclerItem.text2

@@ -4,4 +4,6 @@
     android:id="@+id/recyclerView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/recycler_list_background_color"
+    android:paddingVertical="8dp"
     tools:listitem="@layout/item_recycler_view" />

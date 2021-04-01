@@ -27,7 +27,6 @@ class ListFragment : Fragment() {
             recyclerView.apply {
                 adapter = RecyclerAdapter(recyclerList)
                 layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity)
-                setHasFixedSize(true)
             }
         }
     }
@@ -41,8 +40,8 @@ class ListFragment : Fragment() {
                 1 -> R.drawable.ic_anchor
                 else -> R.drawable.ic_architecture
             }
-            val item = RecyclerItem(drawable, "Item $i", "Line 2")
-            list += item
+           val item = RecyclerItem(drawable, "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+           list += item
         }
         return list
     }
