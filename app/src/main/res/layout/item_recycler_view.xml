@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="8dp"
-    cardView:cardCornerRadius="16dp"
+    cardView:cardCornerRadius="10dp"
     cardView:cardElevation="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,8 +21,9 @@
             android:layout_height="174dp"
             android:layout_margin="8dp"
             android:background="@drawable/image_view_corner"
+            android:scaleType="centerCrop"
             android:src="@drawable/ic_android"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/ItemRecyclerViewImageView2"
             app:layout_constraintEnd_toStartOf="@id/ItemRecyclerViewTextView1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,23 +40,49 @@
             android:textColor="@android:color/black"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/ItemRecyclerViewTextView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ItemRecyclerViewImageView"
-            app:layout_constraintTop_toTopOf="@id/ItemRecyclerViewImageView"
-            app:layout_constraintBottom_toTopOf="@id/ItemRecyclerViewTextView2"/>
+            app:layout_constraintTop_toTopOf="@id/ItemRecyclerViewImageView" />
 
         <TextView
             android:id="@+id/ItemRecyclerViewTextView2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/ItemRecyclerViewTextView1"
-            android:textSize="16sp"
             android:ellipsize="end"
             android:lines="4"
             android:text="Line 2"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/ItemRecyclerViewImageView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/ItemRecyclerViewTextView1"
             app:layout_constraintTop_toBottomOf="@id/ItemRecyclerViewTextView1" />
+
+        <ImageView
+            android:id="@+id/ItemRecyclerViewImageView2"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="18sp"
+            android:layout_marginBottom="8sp"
+            android:src="@drawable/ic_baseline_star_border_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ItemRecyclerViewButtonTextView"
+            app:layout_constraintStart_toStartOf="@+id/ItemRecyclerViewImageView"
+            app:layout_constraintTop_toBottomOf="@+id/ItemRecyclerViewImageView" />
+
+        <TextView
+            android:id="@+id/ItemRecyclerViewButtonTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="I am the button"
+            android:textSize="16sp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="@id/ItemRecyclerViewImageView2"
+            app:layout_constraintStart_toEndOf="@+id/ItemRecyclerViewImageView2"
+            app:layout_constraintTop_toTopOf="@+id/ItemRecyclerViewImageView2" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

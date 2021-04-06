@@ -3,6 +3,9 @@ package com.example.videoapplication
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import coil.transform.CircleCropTransformation
+import coil.transform.RoundedCornersTransformation
 import com.example.videoapplication.databinding.ItemRecyclerViewBinding
 
 class RecyclerAdapter(private val itemList: List<RecyclerItem>) : RecyclerView.Adapter<RecyclerViewHolder>() {
@@ -23,7 +26,16 @@ class RecyclerViewHolder(private val item: ItemRecyclerViewBinding) : RecyclerVi
 
     fun bind(recyclerItem: RecyclerItem) {
         with(item) {
-            ItemRecyclerViewImageView.setImageResource(recyclerItem.imageResource)
+            ItemRecyclerViewImageView.load(recyclerItem.imageResource){
+                transformations(RoundedCornersTransformation(25f))
+                crossfade(true)
+            }
+
+            if (recyclerItem.hasFavorite) {
+                ItemRecyclerViewImageView2.setImageResource(R.drawable.ic_baseline_star_24)
+            } else {
+                ItemRecyclerViewImageView2.setImageResource(R.drawable.ic_baseline_star_border_24)
+            }
             ItemRecyclerViewTextView1.text = recyclerItem.text1
             ItemRecyclerViewTextView2.text = recyclerItem.text2
         }

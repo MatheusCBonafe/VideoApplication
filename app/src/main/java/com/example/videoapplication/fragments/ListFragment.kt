@@ -15,8 +15,12 @@ class ListFragment : Fragment() {
         FragmentListBinding.inflate(layoutInflater)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val recyclerList = generateDummyList(10)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val recyclerList = generateDummyList()
         setUpAdapter(recyclerList)
 
         return binding.root
@@ -31,18 +35,28 @@ class ListFragment : Fragment() {
         }
     }
 
-    private fun generateDummyList(size: Int): List<RecyclerItem> {
-        val list = ArrayList<RecyclerItem>()
+    private fun generateDummyList(): List<RecyclerItem> {
+        return listOf(
+            RecyclerItem(
+                "https://2.bp.blogspot.com/-bPIkBuAXsbY/XR76sW9L4RI/AAAAAAAAELA/UcveontcdhwsrsHt9V5IqpYe6tMp3QmlACKgBGAs/w0/fantasy-monster-cthulhu-uhdpaper.com-4K-158.jpg",
+                "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                true
+            ),
 
-        for (i in 0 until size) {
-            val drawable = when (i % 3) {
-                0 -> R.drawable.ic_android
-                1 -> R.drawable.ic_anchor
-                else -> R.drawable.ic_architecture
-            }
-           val item = RecyclerItem(drawable, "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
-           list += item
-        }
-        return list
+            RecyclerItem(
+                "https://2.bp.blogspot.com/-bPIkBuAXsbY/XR76sW9L4RI/AAAAAAAAELA/UcveontcdhwsrsHt9V5IqpYe6tMp3QmlACKgBGAs/w0/fantasy-monster-cthulhu-uhdpaper.com-4K-158.jpg",
+                "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                false
+            ),
+
+            RecyclerItem(
+                "https://2.bp.blogspot.com/-bPIkBuAXsbY/XR76sW9L4RI/AAAAAAAAELA/UcveontcdhwsrsHt9V5IqpYe6tMp3QmlACKgBGAs/w0/fantasy-monster-cthulhu-uhdpaper.com-4K-158.jpg",
+                "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                true
+            )
+        )
     }
 }
