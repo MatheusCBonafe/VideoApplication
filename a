@@ -1,0 +1,119 @@
+[33mcommit 2952eba23dd426aa8eab0cc2102db9d91e917ae7[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Merge: a922426 8566b86
+Author: MatheusCBonafe <44180484+MatheusCBonafe@users.noreply.github.com>
+Date:   Tue Apr 6 15:55:49 2021 -0300
+
+    Merge pull request #5 from MatheusCBonafe/feat/refactor-list-layout
+    
+    Feat/refactor list layout
+
+[33mcommit 8566b869d8f392f0037c02ff82f44888d1df073b[m[33m ([m[1;31morigin/feat/refactor-list-layout[m[33m)[m
+Author: MatheusCBonafe <warpmatheus@gmail.com>
+Date:   Tue Apr 6 15:53:40 2021 -0300
+
+    added coil implementation and added favorite button placeholder
+
+[33mcommit 3b9d85f1249dde3c54b202a6b9dee8463436f29d[m
+Author: MatheusCBonafe <warpmatheus@gmail.com>
+Date:   Thu Apr 1 11:02:34 2021 -0300
+
+    refactored the way data is shown for the user on itens in the recycler view
+
+[33mcommit 025efbef6ed87ee2cddc3bb01e60c1d402c6f386[m
+Author: MatheusCBonafe <warpmatheus@gmail.com>
+Date:   Wed Mar 31 12:29:55 2021 -0300
+
+    Rise glorious creation
+
+[33mcommit 4ec8e2b9e7fb9504c0f1c5309e8bfe19db2d97bc[m
+Author: MatheusCBonafe <warpmatheus@gmail.com>
+Date:   Wed Mar 31 11:52:36 2021 -0300
+
+    recycler list refuses to work
+
+[33mcommit 8eed06019b09b104954dce2b9804a69bdda519f4[m[33m ([m[1;31morigin/develop[m[33m, [m[1;32mfeat/implementation-of-click-on-list[m[33m, [m[1;32mdevelop[m[33m)[m
+Merge: 8c038f0 469d5ba
+Author: MatheusCBonafe <44180484+MatheusCBonafe@users.noreply.github.com>
+Date:   Fri Mar 26 17:06:20 2021 -0300
+
+    Merge pull request #4 from MatheusCBonafe/refactor/refactor-navigation-buttons-into-tabs
+    
+    Refactor/refactor navigation buttons into tabs
+
+[33mcommit 469d5ba1a1099adfa01588767b6d9a5321def99a[m[33m ([m[1;31morigin/refactor/refactor-navigation-buttons-into-tabs[m[33m)[m
+Author: MatheusCBonafe <warpmatheus@gmail.com>
+Date:   Fri Mar 26 15:44:33 2021 -0300
+
+    refactor/refactored entire code to use view binding and implemented tab navigation
+
+[33mcommit 21fdef5475ef923554e3ab5ddb46bdd268f505a0[m
+Author: MatheusCBonafe <warpmatheus@gmail.com>
+Date:   Fri Mar 19 12:30:34 2021 -0300
+
+    refactored navigation buttons into a tabLayout with placeholder functionalities
+
+[33mcommit 8c038f031b96825bb505bb890c95d9a6c2b32993[m
+Merge: 1bd8c8c 91d6b07
+Author: MatheusCBonafe <44180484+MatheusCBonafe@users.noreply.github.com>
+Date:   Wed Mar 17 16:46:40 2021 -0300
+
+    Merge pull request #3 from MatheusCBonafe/refactor/use-view-bind-on-code
+    
+    Refactor/use view bind on code
+
+[33mcommit 91d6b077462d18d18721588b345998551adf8b27[m[33m ([m[1;31morigin/refactor/use-view-bind-on-code[m[33m)[m
+Author: MatheusCBonafe <warpmatheus@gmail.com>
+Date:   Wed Mar 17 16:41:20 2021 -0300
+
+    refactor:refactored button and recyclerlist to use view binding
+
+[33mcommit da3a339005ab6fbef6bd847015e79fd8127cb68c[m
+Author: MatheusCBonafe <warpmatheus@gmail.com>
+Date:   Tue Mar 16 17:26:43 2021 -0300
+
+    refactor:refactored synthetic recyclerview implementation to view bind
+
+[33mcommit 3182c683f8026b5b715f17e2c84e480fd2f3c3aa[m
+Author: MatheusCBonafe <warpmatheus@gmail.com>
+Date:   Tue Mar 16 17:26:15 2021 -0300
+
+    refactor:refactored synthetic recyclerview implementation to view bind
+
+[33mcommit 1bd8c8c4d8a716ce1a725a6a4ffe36f0feeb3f4c[m
+Merge: 88ea907 11bf833
+Author: MatheusCBonafe <44180484+MatheusCBonafe@users.noreply.github.com>
+Date:   Tue Mar 16 16:03:11 2021 -0300
+
+    Merge pull request #2 from MatheusCBonafe/feat/navigation-buttons
+    
+    merge navigation buttons into develop
+
+[33mcommit 11bf8335d283688645433e2e6ccbe895abb150e4[m
+Author: MatheusCBonafe <warpmatheus@gmail.com>
+Date:   Tue Mar 16 16:00:18 2021 -0300
+
+    final branch commit
+
+[33mcommit 88ea9070404c922e1ebbd40e0a7cffb5558d5533[m
+Author: MatheusCBonafe <warpmatheus@gmail.com>
+Date:   Tue Mar 16 15:35:31 2021 -0300
+
+    Added navigation buttons to the two screens
+
+[33mcommit 1e20374e42a0f383e80666579e13c6eb685d5bb6[m
+Author: MatheusCBonafe <warpmatheus@gmail.com>
+Date:   Mon Mar 15 16:10:59 2021 -0300
+
+    refactor/changed the way the left button works from code in the main to a separate function
+
+[33mcommit ef4bc1ed1a8061f46e510b50ea8a801da27fe2b7[m
+Author: MatheusCBonafe <warpmatheus@gmail.com>
+Date:   Mon Mar 15 15:52:07 2021 -0300
+
+    feat:proper button placement and additional button implementation for future navigation implementations
+
+[33mcommit a9224263e3d850f03f70ba8d7f04a924e9706c12[m
+Author: MatheusCBonafe <warpmatheus@gmail.com>
+Date:   Fri Mar 5 16:22:42 2021 -0300
+
+    first commit
