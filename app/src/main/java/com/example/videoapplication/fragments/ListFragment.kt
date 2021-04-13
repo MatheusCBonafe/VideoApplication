@@ -1,15 +1,18 @@
+
 package com.example.videoapplication
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.example.videoapplication.databinding.FragmentListBinding
 
 // TODO: Rename parameter arguments, choose names that match
 
-class ListFragment : Fragment() {
+class ListFragment : Fragment(), RecyclerAdapter.OnItemClickListener {
     // TODO: Rename and change types of parameters
     val binding by lazy {
         FragmentListBinding.inflate(layoutInflater)
@@ -29,8 +32,17 @@ class ListFragment : Fragment() {
     private fun setUpAdapter(recyclerList: List<RecyclerItem>) {
         with(binding) {
             recyclerView.apply {
-                adapter = RecyclerAdapter(recyclerList)
+                adapter = RecyclerAdapter(recyclerList, this@ListFragment)
                 layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity)
+            }
+        }
+    }
+
+    override fun onItemClick(position: Int) {
+        with(binding) {
+            recyclerView.apply {
+                Toast.makeText(activity, "Item $position", Toast.LENGTH_SHORT).show()
+                val clickedItem = recyclerView[position]
             }
         }
     }
