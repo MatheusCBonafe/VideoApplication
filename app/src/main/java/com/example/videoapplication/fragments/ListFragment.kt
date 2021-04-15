@@ -1,6 +1,6 @@
-
 package com.example.videoapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -41,8 +41,11 @@ class ListFragment : Fragment(), RecyclerAdapter.OnItemClickListener {
     override fun onItemClick(position: Int) {
         with(binding) {
             recyclerView.apply {
-                Toast.makeText(activity, "Item $position", Toast.LENGTH_SHORT).show()
-                val clickedItem = recyclerView[position]
+//                Toast.makeText(activity, "Item $position", Toast.LENGTH_SHORT).show()
+//                val clickedItem = recyclerView[position]
+
+                val intent = Intent(requireActivity(), VideoActivity::class.java)
+                startActivity(intent)
             }
         }
     }

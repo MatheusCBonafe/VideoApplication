@@ -21,12 +21,12 @@ class MainActivity : AppCompatActivity() {
         with(binding) {
             val adapter = ViewPagerAdapter(supportFragmentManager)
 
-            adapter.addFragment(ListFragment(), "List")
+            adapter.addFragment(ListFragment(), "Videos")
             adapter.addFragment(FavoritesFragment(), "Favorites")
             viewPager.adapter = adapter
             tabLayout.setupWithViewPager(viewPager)
-            tabLayout.getTabAt(0)!!.setIcon(R.drawable.ic_architecture)
-            tabLayout.getTabAt(1)!!.setIcon(R.drawable.ic_android)
+            tabLayout.getTabAt(0)!!.setIcon(R.drawable.ic_baseline_format_list_bulleted_24)
+            tabLayout.getTabAt(1)!!.setIcon(R.drawable.ic_baseline_star_24)
         }
 
     }
