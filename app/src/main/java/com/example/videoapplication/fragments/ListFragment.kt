@@ -1,5 +1,6 @@
 package com.example.videoapplication
 
+import android.app.DownloadManager
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import com.example.videoapplication.databinding.FragmentListBinding
 
 class ListFragment : Fragment(), RecyclerAdapter.OnItemClickListener {
     // TODO: Rename and change types of parameters
+
     val binding by lazy {
         FragmentListBinding.inflate(layoutInflater)
     }
