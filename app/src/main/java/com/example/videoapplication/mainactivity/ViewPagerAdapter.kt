@@ -1,4 +1,4 @@
-package com.example.videoapplication
+package com.example.videoapplication.mainactivity
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

@@ -1,4 +1,4 @@
-package com.example.videoapplication
+package com.example.videoapplication.list
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,7 @@ import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
+import com.example.videoapplication.R
 import com.example.videoapplication.databinding.ItemRecyclerViewBinding
 
 class RecyclerAdapter(
@@ -23,7 +24,9 @@ class RecyclerAdapter(
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         val currentItem = itemList[position]
         holder.itemView.animation =
-            AnimationUtils.loadAnimation(holder.itemView.context, R.anim.animations)
+            AnimationUtils.loadAnimation(holder.itemView.context,
+                R.anim.animations
+            )
         holder.bind(currentItem)
     }
 

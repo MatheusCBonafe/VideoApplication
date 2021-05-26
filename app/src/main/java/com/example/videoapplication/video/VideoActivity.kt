@@ -1,4 +1,4 @@
-package com.example.videoapplication
+package com.example.videoapplication.video
 
 import android.app.Activity
 import android.os.Bundle
