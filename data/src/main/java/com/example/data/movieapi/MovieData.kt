@@ -1,3 +1,3 @@
-package com.example.videoapplication.movieapi
+package com.example.data.movieapi
 
 class MovieData : ArrayList<MovieDataClass>()

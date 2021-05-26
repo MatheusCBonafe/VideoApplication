@@ -1,4 +1,4 @@
-package com.example.videoapplication.movieapi
+package com.example.data.movieapi
 
 import retrofit2.Call
 import retrofit2.http.GET

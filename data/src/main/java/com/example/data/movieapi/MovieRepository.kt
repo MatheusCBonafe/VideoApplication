@@ -1,4 +1,4 @@
-package com.example.videoapplication.movieapi
+package com.example.data.movieapi
 
 import android.util.Log
 import retrofit2.Call
@@ -29,8 +29,8 @@ class MovieRepository {
                 call: Call<List<MovieDataClass>?>,
                 response: Response<List<MovieDataClass>?>
             ) {
-          /*      val responseBody = response.body()!!
-                val stringBuilder = StringBuilder()
+               val responseBody = response.body()!!
+               /* val stringBuilder = StringBuilder()
 
                 for (Data in responseBody) {
                     stringBuilder.append(Data.id)

@@ -11,10 +11,11 @@ import com.example.videoapplication.R
 import com.example.videoapplication.databinding.ItemRecyclerViewBinding
 
 class RecyclerAdapter(
-    private val itemList: List<RecyclerItem>,
     private val listener: OnItemClickListener
-) :
-    RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder>() {
+) : RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder>() {
+
+    private var itemList: MutableList<RecyclerItem> = mutableListOf()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
         val itemView =
             ItemRecyclerViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -32,6 +33,11 @@ class RecyclerAdapter(
 
     override fun getItemCount(): Int = itemList.size
 
+    fun setItemList(items: List<RecyclerItem>) {
+        itemList.clear()
+        itemList.addAll(items)
+        notifyDataSetChanged()
+    }
 
     inner class RecyclerViewHolder(private val item: ItemRecyclerViewBinding) :
         RecyclerView.ViewHolder(item.root),

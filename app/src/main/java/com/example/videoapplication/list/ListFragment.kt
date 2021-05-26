@@ -2,12 +2,13 @@ package com.example.videoapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.videoapplication.databinding.FragmentListBinding
 import com.example.videoapplication.list.ListViewModel
@@ -20,7 +21,13 @@ import com.example.videoapplication.video.VideoActivity
 class ListFragment : Fragment(), RecyclerAdapter.OnItemClickListener {
     // TODO: Rename and change types of parameters
 
-    private lateinit var listViewModel : ListViewModel
+    private lateinit var listViewModel: ListViewModel
+
+    val movieAdapter by lazy {
+        RecyclerAdapter(
+            this@ListFragment
+        )
+    }
 
     val binding by lazy {
         FragmentListBinding.inflate(layoutInflater)
@@ -34,6 +41,12 @@ class ListFragment : Fragment(), RecyclerAdapter.OnItemClickListener {
         listViewModel =
             ViewModelProvider(this).get(ListViewModel::class.java)
 
+        listViewModel.recyclerItems. observe(viewLifecycleOwner, Observer{ items ->
+            movieAdapter.setItemList(items)
+        })
+
+        listViewModel.text()
+
         val recyclerList = generateDummyList()
         setUpAdapter(recyclerList)
 
@@ -43,10 +56,7 @@ class ListFragment : Fragment(), RecyclerAdapter.OnItemClickListener {
     private fun setUpAdapter(recyclerList: List<RecyclerItem>) {
         with(binding) {
             recyclerView.apply {
-                adapter = RecyclerAdapter(
-                    recyclerList,
-                    this@ListFragment
-                )
+                adapter = movieAdapter
                 layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity)
             }
         }
