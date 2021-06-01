@@ -1,6 +1,8 @@
 package com.example.data.movieapi
 
 import android.util.Log
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,15 +31,15 @@ class MovieRepository {
                 call: Call<List<MovieDataClass>?>,
                 response: Response<List<MovieDataClass>?>
             ) {
-               val responseBody = response.body()!!
-               /* val stringBuilder = StringBuilder()
+                val responseBody = response.body()!!
+                val stringBuilder = StringBuilder()
 
                 for (Data in responseBody) {
                     stringBuilder.append(Data.id)
                     stringBuilder.append(" - ")
                     stringBuilder.append(Data.title)
                     stringBuilder.append("\n")
-                }*/
+                }
 
             }
         })
