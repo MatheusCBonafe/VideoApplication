@@ -1,8 +1,7 @@
 package com.example.data.movieapi
 
 data class MovieDataClass(
-    val body: String,
-    val id: Int,
-    val title: String,
-    val userId: Int
+    val original_title: String,
+    val overview : String,
+    val poster_path : String
 )

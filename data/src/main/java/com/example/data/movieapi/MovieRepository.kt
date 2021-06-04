@@ -1,8 +1,7 @@
-package com.example.data.movieapi
-
 import android.util.Log
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
+import com.example.data.movieapi.MovieDataClass
+import com.example.data.movieapi.MovieIndexDataClass
+import com.example.data.movieapi.MovieInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -11,9 +10,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MovieRepository {
 
-    val BASE_URL: String = "https://jsonplaceholder.typicode.com/"
+    val BASE_URL: String = "https://api.themoviedb.org/3/"
 
-    fun getItemData() {
+    fun getItemData(callback: (List<MovieDataClass>) -> Unit) {     //pass a variable?
         val retrofitBuilder = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BASE_URL)
@@ -22,25 +21,16 @@ class MovieRepository {
 
         val retrofitData = retrofitBuilder.getData()
 
-        retrofitData.enqueue(object : Callback<List<MovieDataClass>?> {
-            override fun onFailure(call: Call<List<MovieDataClass>?>, t: Throwable) {
+        retrofitData.enqueue(object : Callback<MovieIndexDataClass?> {
+            override fun onFailure(call: Call<MovieIndexDataClass?>, t: Throwable) {
                 Log.d("MainActivity", "onFailure: " + t.message)
             }
 
             override fun onResponse(
-                call: Call<List<MovieDataClass>?>,
-                response: Response<List<MovieDataClass>?>
+                call: Call<MovieIndexDataClass?>,
+                response: Response<MovieIndexDataClass?>
             ) {
-                val responseBody = response.body()!!
-                val stringBuilder = StringBuilder()
-
-                for (Data in responseBody) {
-                    stringBuilder.append(Data.id)
-                    stringBuilder.append(" - ")
-                    stringBuilder.append(Data.title)
-                    stringBuilder.append("\n")
-                }
-
+                callback(response.body()?.results?: emptyList())
             }
         })
     }
