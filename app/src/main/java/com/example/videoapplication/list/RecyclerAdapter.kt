@@ -1,4 +1,4 @@
-package com.example.videoapplication
+package com.example.videoapplication.list
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,13 +7,15 @@ import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
+import com.example.videoapplication.R
 import com.example.videoapplication.databinding.ItemRecyclerViewBinding
 
 class RecyclerAdapter(
-    private val itemList: List<RecyclerItem>,
     private val listener: OnItemClickListener
-) :
-    RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder>() {
+) : RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder>() {
+
+    private var itemList: MutableList<RecyclerItem> = mutableListOf()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
         val itemView =
             ItemRecyclerViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -23,12 +25,19 @@ class RecyclerAdapter(
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         val currentItem = itemList[position]
         holder.itemView.animation =
-            AnimationUtils.loadAnimation(holder.itemView.context, R.anim.animations)
+            AnimationUtils.loadAnimation(holder.itemView.context,
+                R.anim.animations
+            )
         holder.bind(currentItem)
     }
 
     override fun getItemCount(): Int = itemList.size
 
+    fun setItemList(items: List<RecyclerItem>) {
+        itemList.clear()
+        itemList.addAll(items)
+        notifyDataSetChanged()
+    }
 
     inner class RecyclerViewHolder(private val item: ItemRecyclerViewBinding) :
         RecyclerView.ViewHolder(item.root),

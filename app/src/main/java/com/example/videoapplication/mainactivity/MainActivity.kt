@@ -1,9 +1,11 @@
-package com.example.videoapplication
+package com.example.videoapplication.mainactivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.videoapplication.ListFragment
+import com.example.videoapplication.R
 import com.example.videoapplication.databinding.ActivityMainBinding
-import com.example.videoapplication.fragments.FavoritesFragment
+import com.example.videoapplication.favorites.FavoritesFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,7 +21,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpTabs() {
         with(binding) {
-            val adapter = ViewPagerAdapter(supportFragmentManager)
+            val adapter =
+                ViewPagerAdapter(
+                    supportFragmentManager
+                )
 
             adapter.addFragment(ListFragment(), "Videos")
             adapter.addFragment(FavoritesFragment(), "Favorites")

@@ -1,4 +1,4 @@
-package com.example.videoapplication
+package com.example.videoapplication.list
 
 data class RecyclerItem(
     val imageResource: String,

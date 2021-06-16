@@ -1,8 +1,9 @@
-package com.example.videoapplication
+package com.example.videoapplication.video
 
 import android.app.Activity
 import android.os.Bundle
 import com.example.videoapplication.databinding.ActivityVideoBinding
+import com.example.videoapplication.list.ListViewModel
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.util.Util
