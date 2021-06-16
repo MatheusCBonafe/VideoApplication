@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.example.videoapplication.databinding.FragmentListBinding
+import com.example.videoapplication.list.ListFragmentCallback
 import com.example.videoapplication.list.ListViewModel
 import com.example.videoapplication.list.RecyclerAdapter
 import com.example.videoapplication.list.RecyclerItem
@@ -18,13 +18,12 @@ import com.example.videoapplication.video.VideoActivity
 
 // TODO: Rename parameter arguments, choose names that match
 
-class ListFragment : Fragment(), RecyclerAdapter.OnItemClickListener {
+class ListFragment : Fragment(), ListFragmentCallback {
     // TODO: Rename and change types of parameters
 
     private val listViewModel: ListViewModel by activityViewModels()
 
-
-    val movieAdapter by lazy {
+    private val movieAdapter by lazy {
         RecyclerAdapter(
             this@ListFragment
         )
@@ -64,10 +63,11 @@ class ListFragment : Fragment(), RecyclerAdapter.OnItemClickListener {
         listViewModel.text()
     }
 
-    override fun onItemClick(position: Int) {
+    override fun itemClick(item: RecyclerItem) {
         with(binding) {
             recyclerView.apply {
                 val intent = Intent(requireActivity(), VideoActivity::class.java)
+                intent.putExtra("itemList", item)
                 startActivity(intent)
             }
         }

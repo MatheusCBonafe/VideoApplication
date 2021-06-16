@@ -11,7 +11,7 @@ import com.example.videoapplication.R
 import com.example.videoapplication.databinding.ItemRecyclerViewBinding
 
 class RecyclerAdapter(
-    private val listener: OnItemClickListener
+    private val listener: ListFragmentCallback
 ) : RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder>() {
 
     private var itemList: MutableList<RecyclerItem> = mutableListOf()
@@ -28,7 +28,7 @@ class RecyclerAdapter(
             AnimationUtils.loadAnimation(holder.itemView.context,
                 R.anim.animations
             )
-        holder.bind(currentItem)
+        holder.bind(currentItem, listener)
     }
 
     override fun getItemCount(): Int = itemList.size
@@ -40,10 +40,9 @@ class RecyclerAdapter(
     }
 
     inner class RecyclerViewHolder(private val item: ItemRecyclerViewBinding) :
-        RecyclerView.ViewHolder(item.root),
-        View.OnClickListener {
+        RecyclerView.ViewHolder(item.root) {
 
-        fun bind(recyclerItem: RecyclerItem) {
+        fun bind(recyclerItem: RecyclerItem, callback : ListFragmentCallback ) {
             with(item) {
                 ItemRecyclerViewImageView.load(recyclerItem.imageResource) {
                     transformations(RoundedCornersTransformation(25f))
@@ -59,15 +58,17 @@ class RecyclerAdapter(
                 ItemRecyclerViewTextView2.text = recyclerItem.text2
             }
 
-            itemView.setOnClickListener(this)
+            itemView.setOnClickListener{
+                callback.itemClick(recyclerItem)
+            }
 
         }
 
-        override fun onClick(v: View?) {
+      /*  override fun onClick(v: View?) {
             val position : Int = adapterPosition
             if (position != RecyclerView.NO_POSITION)
-            listener.onItemClick(position)
-        }
+        //    listener.onItemClick(position)
+        }*/
     }
 
     interface OnItemClickListener {

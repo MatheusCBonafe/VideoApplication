@@ -8,8 +8,6 @@ import com.example.data.movieapi.MovieDataClass
 
 
 class ListViewModel : ViewModel() {
-    private var _text = MutableLiveData<String>()
-    val text: LiveData<String> get() = _text
 
     private var _recyclerItems = MutableLiveData<List<RecyclerItem>>()
     val recyclerItems: LiveData<List<RecyclerItem>> get() = _recyclerItems
@@ -22,9 +20,11 @@ class ListViewModel : ViewModel() {
 
         return movieList.map {
             RecyclerItem(
+                it.id,
                 "https://image.tmdb.org/t/p/original/" + it.poster_path,
                 it.original_title,
                 it.overview,
+                it.release_date,
                 true
             )
         }
